@@ -1,4 +1,4 @@
-# super-fantastic-dashboard
+# Super Fantastic Dashboard
 
 > A Vue.js project
 
