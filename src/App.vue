@@ -1,15 +1,19 @@
 <template>
   <div id="app">
-    <h1>Super Fantastic Dashboard</h1>
+    <h1>{{ title }}</h1>
+    <todo-list></todo-list>
   </div>
 </template>
 
 <script>
+import todoList from './components/Todo-List.vue';
+
 export default {
   name: 'app',
-  data () {
+  components: { todoList },
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      title: 'Super Fantastic Dashboard'
     }
   }
 }
@@ -35,7 +39,6 @@ ul {
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
 }
 
