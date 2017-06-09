@@ -1,23 +1,21 @@
 <template>
-  <div class="container">
+  <div>
     <input type="checkbox" v-model="todo.completed">
-    <div>
-      <h2>{{ todo.title }}</h2>
-      <p>{{ todo.notes }}</p>
-    </div>
+    {{ todo.title }}
+    {{ todo.notes }}
   </div>
 </template>
 
 <script>
-export default {
-  name: 'todoItem',
-    props: {
-    todo: {
-      type: Object,
-      required: true
+  export default {
+    name: 'todoItem',
+      props: {
+      todo: {
+        type: Object,
+        required: true
+      }
     }
   }
-}
 </script>
 
 <style lang="scss" scoped>
