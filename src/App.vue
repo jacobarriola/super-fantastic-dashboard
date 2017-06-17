@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <unsplash-background></unsplash-background>
     <h1>{{ title }}</h1>
     <todo-list></todo-list>
   </div>
@@ -7,10 +8,11 @@
 
 <script>
 import todoList from './components/Todo-List.vue';
+import UnsplashBackground from './components/Unsplash-Background.vue';
 
 export default {
   name: 'app',
-  components: { todoList },
+  components: { todoList, UnsplashBackground },
   data() {
     return {
       title: 'Super Fantastic Dashboard'
