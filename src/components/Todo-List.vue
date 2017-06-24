@@ -1,9 +1,8 @@
 <template>
-  <div>
-    <p>I'm the todos component</p>
+  <div class="todo-list">
     <ul>
-      <li v-for="todo in todos">
-        <todo-item :todo="todo"></todo-item>            
+      <li v-for="todo in todos" class="todo-item">
+        <todo-item :todo="todo"></todo-item>
       </li>
     </ul>
   </div>
@@ -25,11 +24,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-ul {
-  margin-top: 2.5em;
-}
-
-li {
-  margin-bottom: .75em;
-}
+  .todo-list {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    padding: 1em;
+    width: 20em;
+    border-radius: 4px;
+    background-color: fade-out(#000, 0.2);
+    text-align: left;
+    color: #fff;
+  }
 </style>
