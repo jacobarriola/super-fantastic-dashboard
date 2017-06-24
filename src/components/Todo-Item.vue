@@ -1,8 +1,18 @@
 <template>
   <div>
-    <input type="checkbox" v-model="todo.completed">
-    {{ todo.title }}
-    {{ todo.notes }}
+    <input type="checkbox" v-model="todo.completed" class="checkbox">
+    <div class="item-content">
+      <span class="title">{{ todo.title }}</span>
+      <p class="note">{{ todo.notes }}</p>
+    </div>
+    <div class="item-actions">
+      <a href="#" class="item-action">
+        <i class="fa fa-check-circle-o"></i>
+      </a>
+      <a href="#" class="item-action">
+        <i class="fa fa-trash-o"></i>
+      </a>
+    </div>
   </div>
 </template>
 
@@ -19,24 +29,41 @@
 </script>
 
 <style lang="scss" scoped>
-  h2 {
-    font-size: 1.5em;
-    line-height: 1;
-    margin-bottom: .25em;
-    margin-top: 0;
+  .checkbox {
+    position: relative;
+    top: -25px;
   }
 
-  p {
-    margin-top: 0;
+  .todo-item {
+    margin-bottom: 20px;
   }
 
-  .container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .item-content {
+    display: inline-block;
+    position: relative;
+    left: 10px;
+
+    > .title {
+      font-size: 1.2em;
+    }
+
+    > .note {
+      margin: 0px;
+      color: fade-out(#fff, 0.5);
+    }
   }
 
-  input[type="checkbox"] {
-    font-size: 3em;
+  .item-actions {
+    display: inline-block;
+    float: right;
+  }
+
+  .item-action {
+    color: #fff;
+    margin-left: 20px;
+
+    &:hover {
+      color: #42b983;
+    }
   }
 </style>
