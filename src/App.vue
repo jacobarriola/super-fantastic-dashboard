@@ -8,11 +8,11 @@
 
 <script>
 import todoList from './components/Todo-List.vue';
-import UnsplashBackground from './components/Unsplash-Background.vue';
+import unsplashBackground from './components/Unsplash-Background.vue';
 
 export default {
   name: 'app',
-  components: { todoList, UnsplashBackground },
+  components: { todoList, unsplashBackground },
   data() {
     return {
       title: 'Super Fantastic Dashboard'
