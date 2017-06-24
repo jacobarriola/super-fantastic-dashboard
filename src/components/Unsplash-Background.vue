@@ -1,6 +1,3 @@
-<template>
-</template>
-
 <script>
   (function () {
     const colors = ['#1abc9c', '#2ecc71', '#3498db', '#9b59b6', '#34495e', '#16a085', '#27ae60',
