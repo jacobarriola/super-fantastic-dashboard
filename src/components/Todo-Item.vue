@@ -19,7 +19,7 @@
 <script>
   export default {
     name: 'todoItem',
-      props: {
+    props: {
       todo: {
         type: Object,
         required: true
