@@ -40,12 +40,11 @@
       fetch(request)
         .then(response => response.json())
         .then((response) => {
-          this.backgroundImage.location = '';
           this.backgroundImage.url = response.urls.regular;
           document.body.style.backgroundImage = `url(${this.backgroundImage.url})`;
           this.backgroundImage.creatorName = response.user.name;
           this.backgroundImage.creatorUrl = response.user.links.html;
-          this.backgroundImage.location = response.location.title;
+          this.backgroundImage.location = response.location.title || '';
         })
         .catch(() => {
           document.body.style.backgroundColor = this.randomColor;
