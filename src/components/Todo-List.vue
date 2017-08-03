@@ -1,5 +1,6 @@
 <template>
   <div class="todo-list">
+    <todo-add @todoAdded="addTodo"></todo-add>
     <ul>
       <li v-for="todo in todos" class="todo-item">
         <todo-item :todo="todo"></todo-item>
@@ -10,16 +11,22 @@
 
 <script>
 import todoItem from './Todo-Item.vue';
+import todoAdd from './Todo-Add.vue';
 import { data } from '../sample-data.js';
 
 export default {
   name: 'todoList',
-  components: { todoItem },
+  components: { todoItem, todoAdd },
   data() {
     return {
       todos: data
     }
-  }
+  },
+  methods: {
+      addTodo(todo) {
+        this.todos.push(todo);
+      }
+    }
 }
 </script>
 
