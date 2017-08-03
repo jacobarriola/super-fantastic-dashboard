@@ -1,7 +1,7 @@
 <template>
     <div>
-        <input type="text" placeholder="Add Title..."  autofocus v-model="newTodo.title" maxlength="24" class="todo-title">
-        <input type="text"  placeholder="Add Note..." v-model="newTodo.notes" maxlength="28" @keyup.enter="addTodo(newTodo)" :disabled="!newTodo.title" class="todo-notes">
+        <input type="text" placeholder="Add Title..." v-model="title" maxlength="22" autofocus class="todo-title">
+        <input type="text"  placeholder="Add Note..." v-model="notes" maxlength="28" @keyup.enter="addTodo" :disabled="!title" class="todo-notes">
     </div>
 </template>
 
@@ -10,19 +10,15 @@
     name: 'todoAdd',
     data() {
       return {
-        newTodo: {
           title: '',
-          notes: '',
-          completed: false
-        }
+          notes: ''
       }
     },
     methods: {
       addTodo() {
-        let todoCopy = JSON.parse(JSON.stringify(this.newTodo));
-        this.$emit('todoAdded', todoCopy);
-        this.newTodo.title = '';
-        this.newTodo.notes = '';
+        this.$emit('todoAdded', this.title, this.notes);
+        this.title = '';
+        this.notes = '';
       }
     }
   }

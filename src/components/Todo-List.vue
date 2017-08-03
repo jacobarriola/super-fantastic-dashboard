@@ -23,8 +23,8 @@ export default {
     }
   },
   methods: {
-      addTodo(todo) {
-        this.todos.push(todo);
+      addTodo(title, notes) {
+        this.todos.push({ title, notes, completed: false});
       }
     }
 }
