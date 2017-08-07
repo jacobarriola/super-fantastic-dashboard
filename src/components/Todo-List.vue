@@ -1,6 +1,6 @@
 <template>
   <div class="todo-list">
-    <todo-add @todoAdded="addTodo"></todo-add>
+    <todo-add></todo-add>
     <ul>
       <li v-for="todo in todos" class="todo-item">
         <todo-item :todo="todo"></todo-item>
@@ -12,21 +12,22 @@
 <script>
 import todoItem from './Todo-Item.vue';
 import todoAdd from './Todo-Add.vue';
-import { data } from '../sample-data.js';
+// import { mapState } from 'vuex';
 
 export default {
   name: 'todoList',
   components: { todoItem, todoAdd },
-  data() {
-    return {
-      todos: data
+  computed: {
+    todos() {
+      return this.$store.state.todos;
     }
   },
-  methods: {
-      addTodo(title, notes) {
-        this.todos.push({ title, notes, completed: false});
-      }
-    }
+  // Get state using alternative mapState helper https://vuex.vuejs.org/en/state.html
+  // computed: mapState(['todos']),
+  created() {
+    // load our sample data
+    this.$store.dispatch('getSampleData');
+  }
 }
 </script>
 
