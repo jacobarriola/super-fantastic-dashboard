@@ -1,13 +1,13 @@
 <template>
   <div>
-    <input type="checkbox" v-model="todo.completed" class="checkbox">
-    <div class="item-content">
+    <input type="checkbox" v-model="todo.completed" class="checkbox" @change="updateTodo(todo)">
+    <div class="item-content" :class="{ completed: todo.completed }">
       <span class="title">{{ todo.title }}</span>
       <p class="note">{{ todo.notes }}</p>
     </div>
     <div class="item-actions">
       <a href="#" class="item-action">
-        <i class="fa fa-check-circle-o"></i>
+        <i class="fa fa-check-circle-o" :class="{ completed: todo.completed }"></i>
       </a>
       <a href="#" class="item-action">
         <i class="fa fa-trash-o"></i>
@@ -23,6 +23,17 @@
       todo: {
         type: Object,
         required: true
+      }
+    },
+    methods: {
+      updateTodo(todo) {
+        this.$store.dispatch('updateTodo',
+          {
+            title: todo.title,
+            notes: todo.notes,
+            completed: todo.completed
+          }
+        );
       }
     }
   }
@@ -65,5 +76,11 @@
     &:hover {
       color: #42b983;
     }
+  }
+  i.completed {
+    color: #42b983;
+  }
+  div.completed {
+    text-decoration: line-through;
   }
 </style>

@@ -20,9 +20,9 @@
             { 
               title: this.title, 
               notes: this.notes,
-              complete: false 
+              completed: false
             } 
-        )
+        );
         this.title = '';
         this.notes = '';
       }
