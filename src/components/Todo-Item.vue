@@ -9,7 +9,7 @@
       <a href="#" class="item-action">
         <i class="fa fa-check-circle-o" :class="{ completed: todo.completed }"></i>
       </a>
-      <a href="#" class="item-action">
+      <a @click.prevent="deleteTodo(todo)" href="#" class="item-action">
         <i class="fa fa-trash-o"></i>
       </a>
     </div>
@@ -34,6 +34,11 @@
             completed: todo.completed
           }
         );
+      },
+      deleteTodo(todo) {
+        if (confirm('Are you sure?')) {
+          this.$store.dispatch('deleteTodo', todo);
+        }
       }
     }
   }
