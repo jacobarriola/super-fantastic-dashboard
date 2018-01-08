@@ -20,7 +20,10 @@ const store = new Vuex.Store({
     },
     updateTodo(context, todo) {
       context.commit('updateTodo', todo);
-    }
+    },
+    deleteTodo(context, todo) {
+      context.commit('deleteTodo', todo);
+    },
   },
   mutations: {
     addTodo(state, newTodo) {
@@ -34,7 +37,11 @@ const store = new Vuex.Store({
       // https://vuejs.org/v2/guide/list.html#Caveats
       // state.todos[index] = modifiedTodo;
       // state.todos[index] = Object.assign({}, modifiedTodo);
-    }
+    },
+    deleteTodo(state, todo) {
+      const index = state.todos.indexOf(todo);
+      state.todos.splice(index, 1);
+    },
   },
 });
 
